@@ -1,1 +1,77 @@
-Hello, world!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Humane AI Network</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <!-- Search is first in the DOM so one Tab reaches it; CSS `order` keeps it
+       visually below the nav. (Tab order follows DOM, not visual order.) -->
+  <div class="searchbar" role="search">
+    <div class="search-field">
+      <input type="search" id="search-input" autocomplete="off"
+             placeholder="Search the project pages…" aria-label="Search the project pages">
+      <span class="scopes" aria-label="Limit search to" hidden>
+        <label><input type="checkbox" class="scope" value="news" checked> News</label>
+        <label><input type="checkbox" class="scope" value="members" checked> Members</label>
+        <label><input type="checkbox" class="scope" value="research" checked> Research</label>
+        <label><input type="checkbox" class="scope" value="activities" checked> Activities</label>
+      </span>
+    </div>
+  </div>
+  <nav class="nav">
+    <a class="brand" href="index.html" aria-label="Humane AI">
+      <span class="brand-logo" role="img" aria-label="Guardrails for Dutch Generative AI"></span>
+    </a>
+        <a href="index.html" aria-current="page">Home</a>
+  </nav>
+</header>
+
+<div id="search-results" class="results" hidden>
+  <div class="results-inner">
+    <h2>Search results</h2>
+    <p id="search-status" class="results-status" role="status" aria-live="polite"></p>
+    <ul class="items" id="search-list"></ul>
+  </div>
+</div>
+
+<div id="page">
+<section class="hero">
+  <h1>What we do</h1>
+  <p>👷‍♀️ While this website is under construction, here is just the project squib in Dutch.</p>
+  <p class="lead">
+  Om de transitie naar digitale autonomie aan te jagen ontwikkelen Universiteit Leiden, VoorRecht-Rechtspraak, Algorithm Audit en T&T Data Consultancy vangrails voor generatieve AI, die goed werken voor de Nederlandse context.
+  </p>
+  <p class="lead">
+    De vangrails die het consortium vervolgens ontwikkelt, zullen kosteloos beschikbaar zijn voor publieke en private organisaties. Ze kunnen er hun eigen generatieve AI-toepassingen mee evalueren. Gebruikers kunnen een open source referentie-dataset zelf aanpassen afhankelijk van de relevante context. Ze kunnen de vangrails bovendien gemakkelijk binnen verschillende tech stacks – zowel cloud als on-premise – gebruiken.
+  </p>
+</section>
+
+<main>
+  <section>
+    <h2>News</h2>
+    <ul class="items">
+      <li class="card" data-keywords="SIDN, funding, project, vangrails, kick-off, start">
+        <div class="item-body">
+          <h3><a href="https://www.sidnfonds.nl/projecten/vangrails-voor-nederlandse-generatieve-ai">Our project acquired funding from SIDN fund!</a></h3>
+          <p class="meta"><span class="tag">Project kick-off</span> &middot; 1 July 2026</p>
+          <p class="excerpt">We're looking forward to filling this space with our findings and tools.</p>
+        </div>
+        <img class="thumb" src="img/events/sidn.svg" alt="">
+      </li>
+    </ul>
+  </section>
+</main>
+</div>
+
+<footer class="site-footer">
+  Guardrails for Dutch Generative AI &middot; <a href="index.html">ai-guardrails.nl</a>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
