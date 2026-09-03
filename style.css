@@ -46,20 +46,20 @@
 
 :root {
   /* ---- Palette ---- */
-  --purple: #5f71a6;
+  --purple: #5469a8;
   --purple-dark: #703404;
   --orange: #fc9f49;
   --plum: #8b4f8f;
   --umber: #a76a55;
   --ochre: #c98a2d;
-  --paper: #f8f6f1;
+  --paper: #fff9f5;
   --ink: #24211f;
 
   --bg: var(--paper);
-  --surface: #ffffff;
+  --surface: #e2e8ff;
   --text: var(--ink);
   --muted: #6b625c;
-  --border: #e6e0d5;
+  --border: #becbff;
   --accent: var(--orange); /* replaces the old neon-lime accent */
 
   /* ---- Fonts ---- */
@@ -230,8 +230,8 @@ h2::before {
   align-items: flex-start;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 5px solid var(--purple);
-  border-radius: 0px 6px 6px 0px;
+  /*border-left: 5px solid var(--purple);*/
+  border-radius: 6px 6px 6px 6px;
   padding: 16px 18px;
   margin-bottom: 14px;
 }
@@ -256,13 +256,13 @@ h2::before {
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .items li.card:hover {
-  border-left-color: var(--purple-dark);
+  /*border-left-color: var(--purple-dark);*/
   box-shadow: 0 2px 12px rgba(107, 63, 160, 0.12);
 }
 /* Tiles without a detail URL: not a link, so no pointer/hover affordance */
 .items li.card:not([data-href]) { cursor: default; }
 .items li.card:not([data-href]):hover {
-  border-left-color: var(--purple);
+  /*border-left-color: var(--purple);*/
   box-shadow: none;
 }
 
