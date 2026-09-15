@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our project acquired funding from SIDN fund! &middot; AI Guardrails</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <!-- Search is first in the DOM so one Tab reaches it; CSS `order` keeps it
+       visually below the nav. (Tab order follows DOM, not visual order.) -->
+  <div class="searchbar" role="search">
+    <div class="search-field">
+      <input type="search" id="search-input" autocomplete="off"
+             placeholder="Search the project pages…" aria-label="Search the project pages">
+      <span class="scopes" aria-label="Limit search to">
+        <label><input type="checkbox" class="scope" value="news" checked> News</label>
+        <label><input type="checkbox" class="scope" value="team" checked> Team</label>
+        <label><input type="checkbox" class="scope" value="blog" checked> Blog</label>
+        <label hidden><input type="checkbox" class="scope" value="research" checked> Research</label>
+        <label hidden><input type="checkbox" class="scope" value="activities" checked> Activities</label>
+      </span>
+    </div>
+  </div>
+  <nav class="nav">
+    <a class="brand" href="index.html" aria-label="Guardrails for Dutch Generative AI">
+      <span class="brand-logo" role="img" aria-label="Guardrails for Dutch Generative AI"></span>
+    </a>
+    <a href="index.html">Home</a>
+    <a href="team.html" >Team</a>
+    <a href="blog.html">Blog</a>
+  </nav>
+</header>
+
+<div id="search-results" class="results" hidden>
+  <div class="results-inner">
+    <h2>Search results</h2>
+    <p id="search-status" class="results-status" role="status" aria-live="polite"></p>
+    <ul class="items" id="search-list"></ul>
+  </div>
+</div>
+
+<div id="page">
+
+<main>
+  <article>
+    <h1>Our project acquired funding from SIDN fund!</h1>
+    <p class="meta"><span class="tag">Project kick-off</span> &middot; 1 July 2026</p>
+    <p>We're looking forward to filling this space with our findings and tools.</p>
+<p>The project is funded by the <a href="https://www.sidnfonds.nl/projecten/vangrails-voor-nederlandse-generatieve-ai">SIDN fund</a>.</p>
+  </article>
+</main>
+
+</div>
+
+<footer class="site-footer">
+  Guardrails for Dutch Generative AI &middot; <a href="index.html">ai-guardrails.nl</a> &middot; <a href="mailto:m.westera@hum.leidenuniv.nl">contact</a>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

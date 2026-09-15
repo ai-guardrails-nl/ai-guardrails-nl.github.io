@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team &middot; AI Guardrails</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <!-- Search is first in the DOM so one Tab reaches it; CSS `order` keeps it
+       visually below the nav. (Tab order follows DOM, not visual order.) -->
+  <div class="searchbar" role="search">
+    <div class="search-field">
+      <input type="search" id="search-input" autocomplete="off"
+             placeholder="Search the project pages…" aria-label="Search the project pages">
+      <span class="scopes" aria-label="Limit search to">
+        <label><input type="checkbox" class="scope" value="news" checked> News</label>
+        <label><input type="checkbox" class="scope" value="team" checked> Team</label>
+        <label><input type="checkbox" class="scope" value="blog" checked> Blog</label>
+        <label hidden><input type="checkbox" class="scope" value="research" checked> Research</label>
+        <label hidden><input type="checkbox" class="scope" value="activities" checked> Activities</label>
+      </span>
+    </div>
+  </div>
+  <nav class="nav">
+    <a class="brand" href="index.html" aria-label="Guardrails for Dutch Generative AI">
+      <span class="brand-logo" role="img" aria-label="Guardrails for Dutch Generative AI"></span>
+    </a>
+    <a href="index.html">Home</a>
+    <a href="team.html"  aria-current="page">Team</a>
+    <a href="blog.html">Blog</a>
+  </nav>
+</header>
+
+<div id="search-results" class="results" hidden>
+  <div class="results-inner">
+    <h2>Search results</h2>
+    <p id="search-status" class="results-status" role="status" aria-live="polite"></p>
+    <ul class="items" id="search-list"></ul>
+  </div>
+</div>
+
+<div id="page">
+
+<main>
+  <section class="hero">
+      <h1>Team</h1>
+  </section>
+
+    <h2>Organizations</h2>
+      <p class="lead logo-row">
+        <img src="img/logos/logo-ul.svg" alt="Universiteit Leiden">
+        <img src="img/logos/logo-aa.png" alt="Algorithm Audit">
+        <img src="img/logos/logo-voorrecht.png" alt="VoorRecht-Rechtspraak">
+        <img src="img/logos/logo-tnt.png" alt="T&amp;T Data Consultancy">
+      </p>
+
+  <h2>People</h2>
+  <ul class="items">
+    
+    
+    <li class="card">
+      <div class="item-body">
+        <h3>Thomas Helling</h3>
+        <p class="meta">T&amp;T Data Consultancy</p>
+        <p class="excerpt"></p>
+      </div>
+      <img class="thumb avatar" src="img/people/thelling.png" alt="">
+    </li>
+    
+    
+    <li class="card">
+      <div class="item-body">
+        <h3>Floris Holstege</h3>
+        <p class="meta">Algorithm Audit</p>
+        <p class="excerpt"></p>
+      </div>
+      <img class="thumb avatar" src="img/people/fholstege.jpeg" alt="">
+    </li>
+    
+    
+    <li class="card">
+      <div class="item-body">
+        <h3>Tim de Jonge</h3>
+        <p class="meta">Algorithm Audit</p>
+        <p class="excerpt"></p>
+      </div>
+      <img class="thumb avatar" src="img/people/tdejonge.jpg" alt="">
+    </li>
+    
+    
+    <li class="card">
+      <div class="item-body">
+        <h3>Jurriaan Parie</h3>
+        <p class="meta">Algorithm Audit</p>
+        <p class="excerpt"></p>
+      </div>
+      <img class="thumb avatar" src="img/people/jparie.jpg" alt="">
+    </li>
+    
+    
+    <li class="card">
+      <div class="item-body">
+        <h3>Pieter van Riemsdijk</h3>
+        <p class="meta">De Rechtspraak</p>
+        <p class="excerpt"></p>
+      </div>
+      <img class="thumb avatar" src="img/people/pvanriemsdijk.jpg" alt="">
+    </li>
+    
+    
+    <li class="card">
+      <div class="item-body">
+        <h3>Karen Schutte</h3>
+        <p class="meta">T&amp;T Data Consultancy</p>
+        <p class="excerpt"></p>
+      </div>
+      <img class="thumb avatar" src="img/people/kschutte.png" alt="">
+    </li>
+    
+    
+    <li class="card">
+      <div class="item-body">
+        <h3><a href="https://mwestera.nl">Matthijs Westera</a></h3>
+        <p class="meta">Universiteit Leiden</p>
+        <p class="excerpt"></p>
+      </div>
+      <img class="thumb avatar" src="img/people/mwestera.jpg" alt="">
+    </li>
+    
+  </ul>
+</main>
+
+</div>
+
+<footer class="site-footer">
+  Guardrails for Dutch Generative AI &middot; <a href="index.html">ai-guardrails.nl</a> &middot; <a href="mailto:m.westera@hum.leidenuniv.nl">contact</a>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

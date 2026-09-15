@@ -314,6 +314,21 @@ h2::before {
 }
 .items p { margin: 4px 0 0; color: var(--text); }
 
+/* Institution logos set in a lead paragraph: normalised to one height and
+   spread across (nearly) the full column, so they read as a single row. */
+.lead.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  max-width: 95%;
+}
+.lead.logo-row img {
+  height: 52px;
+  width: auto;
+}
+
 /* ---------- Institution logo grid ---------- */
 .logos {
   list-style: none;
@@ -344,6 +359,22 @@ h2::before {
 }
 
 /* ---------- Search ---------- */
+/* Tally of matches that fall outside the quoted window. */
+.results .more {
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Matched terms inside a result snippet. */
+.results mark {
+  background: #ffe9a8;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
 [hidden] { display: none !important; }   /* let `hidden` win over flex/grid */
 
 /* Sits in the row below the nav, but starts clear of the overhanging logo and

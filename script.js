@@ -87,12 +87,57 @@
   }
 
   function enabledScopes() {
-    if (!scopesUsable()) return null;
+    if (!scopeBoxes.length || !scopesUsable()) return null;
     return scopeBoxes.filter(function (b) { return b.checked; })
                      .map(function (b) { return b.value; });
   }
 
-  function cardHTML(it) {
+  function rxEscape(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+
+  function countHits(text, terms) {
+    var hay = text.toLowerCase();
+    return terms.reduce(function (n, t) {
+      return n + (hay.split(t).length - 1);
+    }, 0);
+  }
+
+  // Keyword in context: a window of the item's text around the first hit, with
+  // every term marked. Cuts at word boundaries so words are never sliced.
+  function snippet(text, terms) {
+    var hay = text.toLowerCase();
+    var at = -1;
+    terms.forEach(function (t) {
+      var i = hay.indexOf(t);
+      if (i !== -1 && (at === -1 || i < at)) at = i;
+    });
+    if (at === -1) return null;
+
+    var start = Math.max(0, at - 90), end = Math.min(text.length, at + 160);
+    if (start > 0) {
+      var sp = text.indexOf(" ", start);
+      if (sp !== -1 && sp < at) start = sp + 1;
+    }
+    if (end < text.length) {
+      var sp2 = text.lastIndexOf(" ", end);
+      if (sp2 > at) end = sp2;
+    }
+    var out = esc(text.slice(start, end));
+    terms.forEach(function (t) {
+      out = out.replace(new RegExp(rxEscape(esc(t)), "gi"), "<mark>$&</mark>");
+    });
+    out = (start > 0 ? "…" : "") + out + (end < text.length ? "…" : "");
+
+    // Each item gets one tile, so hits outside the quoted window would go
+    // unmentioned; count them instead.
+    var more = countHits(text, terms) - countHits(text.slice(start, end), terms);
+    if (more > 0) {
+      out += ' <span class="more">[…and ' + more +
+             (more === 1 ? " more occurrence]" : " more occurrences]") + "</span>";
+    }
+    return out;
+  }
+
+  function cardHTML(it, terms) {
     var href = it.url || it.page;
     var title = href ? '<a href="' + esc(href) + '">' + esc(it.title) + "</a>"
                      : esc(it.title);
@@ -103,7 +148,11 @@
     var cls = it.t === "members" ? "thumb avatar" : "thumb";
     var img = it.img ? '<img class="' + cls + '" src="img/' + esc(it.img) + '" alt="">' : "";
     var meta = it.meta ? '<p class="meta">' + it.meta + "</p>" : "";
-    var text = it.text ? '<p class="excerpt">' + mdInline(it.text) + "</p>" : "";
+    // Quote the passage the query actually hit; if it hit the title, keywords
+    // or metadata instead, fall back to the item's own excerpt.
+    var body = (it.text && snippet(it.text, terms || [])) ||
+               (it.excerpt ? mdInline(it.excerpt) : "");
+    var text = body ? '<p class="excerpt">' + body + "</p>" : "";
     return '<li class="card"' + dataHref + ">" + '<div class="item-body"><h3>' +
            title + "</h3>" + meta + text + "</div>" + img + "</li>";
   }
@@ -126,7 +175,9 @@
                    stripTags(it.meta)).toLowerCase();
         return terms.every(function (t) { return hay.indexOf(t) !== -1; });
       });
-      list.innerHTML = matches.map(cardHTML).join("");
+      list.innerHTML = matches.map(function (it) {
+        return cardHTML(it, terms);
+      }).join("");
       var n = matches.length;
       status.textContent = n ? (n + (n === 1 ? " result" : " results"))
                              : "No matches.";
